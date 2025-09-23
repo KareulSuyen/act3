@@ -1,5 +1,5 @@
 using System;
-public class Gnenob {
+public class Boneng {
     public static void Main(String[] args) {
         Console.WriteLine("Welcome to DDS(Daily Dose of Stupidity)");
         Console.WriteLine("____________________________________");
