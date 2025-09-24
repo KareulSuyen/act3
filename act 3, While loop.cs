@@ -7,10 +7,8 @@ public class Boneng
         int score = 0;
         int number = 1;
 
-        Console.WriteLine("Quiz Time!");
-        Console.WriteLine("Type your answer and press Enter.");
-        Console.WriteLine("You can type 'exit' anytime to quit.\n");
-
+        Console.WriteLine("Quiz na!!!");
+        
         string answer;
       
         while (number <= 3) {
