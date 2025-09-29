@@ -6,21 +6,21 @@ public class Boneng {
         Console.WriteLine();
 
         Console.WriteLine("___Menus___");
-        string[] lists = [
+        string[] lists = {
             "1. SupaFl-ash Drive 1tb - ",
             "2. Romualdez beloved DVD - ",
             "3. Charlie Kirk's freedom T-shirt - ",
             "4. Viy Cortez Shopping cart - ",
-        ];
+        };
 
         Console.WriteLine();
 
-        decimal[] prices = [
+        decimal[] prices = {
             500m,
             50.000000m,
             1000m,
             200m
-        ];
+        };
 
         foreach (string list in lists) {
             Console.WriteLine(list);
