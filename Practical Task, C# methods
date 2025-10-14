@@ -1,0 +1,327 @@
+using System;
+using System.Linq;
+
+public class GnenobLangSakalam {
+    public static void Main(string[] args) {
+        ForEachLoop();
+    }
+
+    static void ConditionalStatements() {
+        Console.WriteLine();
+        Console.WriteLine("_Conditional Statements_");
+        Console.WriteLine();
+
+        Console.Write("English : ");
+        string English = Console.ReadLine() ?? "";
+        float EnglishGrades = float.Parse(English);
+
+        Console.Write("Filipino : ");
+        string Filipino = Console.ReadLine() ?? "";
+        float FilipinoGrades = float.Parse(Filipino);
+
+        Console.Write("ESP : ");
+        string ESP = Console.ReadLine() ?? "";
+        float ESPGrades = float.Parse(ESP);
+
+        Console.Write("Math : ");
+        string Math = Console.ReadLine() ?? "";
+        float MathGrades = float.Parse(Math);
+
+        Console.Write("AP : ");
+        string AP = Console.ReadLine() ?? "";
+        float APGrades = float.Parse(AP);
+
+        Console.Write("MotherTongue : ");
+        string MotherTongue = Console.ReadLine() ?? "";
+        float MotherTongueGrades = float.Parse(MotherTongue);
+
+        Console.Write("TLE : ");
+        string TLE = Console.ReadLine() ?? "";
+        float TLEGrades = float.Parse(TLE);
+
+        float[] subjects = { EnglishGrades, FilipinoGrades, ESPGrades, MathGrades, APGrades, MotherTongueGrades, TLEGrades };
+        float result = subjects.Sum() / subjects.Length;
+
+        Console.WriteLine($"General Average: {result}");
+
+        if (result > 100) {
+            Console.WriteLine("Value error");
+        }
+        else if (result >= 98 && result <= 100) {
+            Console.WriteLine("With Highest Honors");
+        }
+        else if (result >= 95 && result <= 97) {
+            Console.WriteLine("With High Honors");
+        }
+        else if (result >= 90 && result <= 94) {
+            Console.WriteLine("With Honors");
+        }
+        else if (result >= 75) {
+            Console.WriteLine("Passed");
+        }
+        else {
+            Console.WriteLine("Failed");
+        }
+    }
+
+    static void SwitchCase() {
+        Console.WriteLine();
+        Console.WriteLine("_Switch Case_");
+        Console.WriteLine();
+
+        Console.Write("Enter Month : ");
+        string m = Console.ReadLine() ?? "";
+        int PromptMonth = int.Parse(m);
+
+        Console.Write("Enter Day : ");
+        string d = Console.ReadLine() ?? "";
+        int day = int.Parse(d);
+
+        Console.Write("Enter Year : ");
+        string y = Console.ReadLine() ?? "";
+        int year = int.Parse(y);
+
+        string month = "";
+
+        switch (PromptMonth) {
+            case 1: month = "January"; break;
+            case 2: month = "February"; break;
+            case 3: month = "March"; break;
+            case 4: month = "April"; break;
+            case 5: month = "May"; break;
+            case 6: month = "June"; break;
+            case 7: month = "July"; break;
+            case 8: month = "August"; break;
+            case 9: month = "September"; break;
+            case 10: month = "October"; break;
+            case 11: month = "November"; break;
+            case 12: month = "December"; break;
+            default: Console.WriteLine("Input error"); break;
+        }
+
+        if (PromptMonth > 12 || PromptMonth < 1 || day > 31 || day < 1) {
+            Console.WriteLine("Please input a valid date.");
+        }
+        else {
+            Console.WriteLine($"Date : {month} {day}, {year}");
+        }
+    }
+
+    static void WhileLoop() {
+        Console.WriteLine();
+        Console.WriteLine("_While Loop_");
+        Console.WriteLine();
+
+        Console.WriteLine("Special quiz my neighbors!!");
+        int lives = 3;
+        int score = 0;
+        int questions = 1;
+
+        string[] answers = {
+            "Lapu-Lapu",
+            "Charlie Kirk",
+            "Along Malapitan",
+            "Rigor Dimagiba",
+            "Aray"
+        };
+
+        while (questions <= 5) {
+            Console.Write($"{questions}. Who killed Ferdinand Magellan? : ");
+            string answer1 = Console.ReadLine() ?? "";
+
+            if (string.Equals(answer1, "Lapu-Lapu", StringComparison.OrdinalIgnoreCase)
+             || string.Equals(answer1, "Lapu Lapu", StringComparison.OrdinalIgnoreCase)) {
+                Console.WriteLine("Correct answer!");
+                score++;
+            }
+            else {
+                Console.WriteLine($"Incorrect, The Right answer is {answers[questions - 1]}");
+                lives--;
+                Console.WriteLine($"Lives left: {lives}");
+            }
+
+            questions++;
+
+            Console.Write($"{questions}. Who married Erika Lane Frantzve : ");
+            string answer2 = Console.ReadLine() ?? "";
+
+            if (string.Equals(answer2, answers[1], StringComparison.OrdinalIgnoreCase)) {
+                Console.WriteLine("Correct answer!");
+                score++;
+            }
+            else {
+                Console.WriteLine($"Incorrect, The Right answer is {answers[questions - 1]}");
+                lives--;
+                Console.WriteLine($"Lives left: {lives}");
+            }
+
+            questions++;
+
+            Console.Write($"{questions}. Who is the son of Oca Malapitan : ");
+            string answer3 = Console.ReadLine() ?? "";
+
+            if (string.Equals(answer3, answers[2], StringComparison.OrdinalIgnoreCase)) {
+                Console.WriteLine("Correct answer!");
+                score++;
+            }
+            else {
+                Console.WriteLine($"Incorrect, The Right answer is {answers[questions - 1]}");
+                lives--;
+                Console.WriteLine($"Lives left: {lives}");
+            }
+            if (lives < 1) {
+                Console.WriteLine("You run out of Lives, Please try again");
+                break;
+            }
+            else {
+                questions++;
+            }
+            
+            Console.Write($"{questions}. Who is the father of Tanggol Dimagiba : ");
+            string answer4 = Console.ReadLine() ?? "";
+
+            if (string.Equals(answer4, answers[3], StringComparison.OrdinalIgnoreCase)) {
+                Console.WriteLine("Correct answer!");
+                score++;
+            }
+            else {
+                Console.WriteLine($"Incorrect, The Right answer is {answers[questions - 1]}");
+                lives--;
+                Console.WriteLine($"Lives left: {lives}");
+            }
+            if (lives < 1) {
+                Console.WriteLine("You run out of Lives, Please try again");
+                break;
+            }
+            else {
+                questions++;
+            }
+
+            Console.Write($"{questions}. What is the last word of Jose Rizal? : ");
+            string answer5 = Console.ReadLine() ?? "";
+
+            if (string.Equals(answer5, answers[4], StringComparison.OrdinalIgnoreCase)) {
+                Console.WriteLine("Correct answer!");
+                score++;
+            }
+            else {
+                Console.WriteLine($"Incorrect, The Right answer is {answers[questions - 1]}");
+                lives--;
+                Console.WriteLine($"Lives left: {lives}");
+            }
+
+            if (score == 5) {
+                Console.WriteLine("Congrats! You got the prefect score!");
+            }
+            else if (lives > 0 && lives <= 3) {
+                Console.WriteLine($"You scored {score} while having {lives} left");
+            }
+            else {
+                Console.WriteLine($"You scored {score}");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Answers :");
+            foreach (string answer in answers) {
+                Console.WriteLine(answer);
+            }
+
+            break;
+        }
+    }
+
+    static void ForLoop() {
+        Console.WriteLine();
+        Console.WriteLine("_For Loop_");
+        Console.WriteLine();
+
+        string[] users = {
+            "Bonerngz55",
+            "EmberMalakas16",
+            "SungaPandak7",
+            "AbugPandak5",
+            "CarlMatangkad99"
+        };
+
+        string[] pass = {
+            "EmberAkingMuntingApo",
+            "GustoKoMagTryOut",
+            "3'4 but terrible",
+            "Matty my lovvy",
+            "konsoldatlag"
+        };
+
+        Console.Write("Enter username : ");
+        string username = Console.ReadLine() ?? "";
+
+        Console.Write("Enter password : ");
+        string password = Console.ReadLine() ?? "";
+
+        bool authorized = false;
+        string success = "";
+        string failed = "Log in failed, Please Try again.";
+
+        for (int i = 0; i < users.Length; i++) {
+            if (string.Equals(username, users[i], StringComparison.OrdinalIgnoreCase) && password.Equals(pass[i])) {
+                success = $"Welcome, {users[i]}";
+                authorized = true;
+                break;
+            }
+        }
+
+        Console.WriteLine(authorized ? success : failed);
+    }
+
+    static void ForEachLoop() {
+        Console.WriteLine();
+        Console.WriteLine("_For Each Loop_");
+        Console.WriteLine();
+
+        string[] genderList = { "Male", "Female", "Bayot" };
+        string[] characterList = { "Super Sunga", "Master Abug", "Raze Charles Ivan", "Fanatic Kirky Charlie" };
+        string[] skillList = { "Smoke bomb", "Arrow", "Punchy Punchy", "Sniper", "Teleport" };
+
+        string userGender = "";
+        string userCharacter = "";
+        string userSkill = "";
+
+        Console.WriteLine($"Genders : {genderList[0]}  |  {genderList[1]}  |  {genderList[2]}");
+        Console.Write("pick a gender : ");
+        string charGender = Console.ReadLine() ?? "";
+
+        foreach (string gender in genderList) {
+            if (string.Equals(charGender, gender, StringComparison.OrdinalIgnoreCase)) {
+                userGender = charGender;
+                break;
+            }
+        }
+
+        Console.WriteLine($"Characters : {characterList[0]}  |  {characterList[1]}  |  {characterList[2]}  |  {characterList[3]}");
+        Console.Write("Pick a character : ");
+        string userChar = Console.ReadLine() ?? "";
+
+        foreach (string character in characterList) {
+            if (string.Equals(userChar, character, StringComparison.OrdinalIgnoreCase)) {
+                userCharacter = userChar;
+                break;
+            }
+        }
+
+        Console.WriteLine($"Skills : {skillList[0]}  |  {skillList[1]}  |  {skillList[2]}  |  {skillList[3]}  |  {skillList[4]}");
+        Console.Write("Pick a skill : ");
+        string userSkills = Console.ReadLine() ?? "";
+
+        foreach (string skill in skillList) {
+            if (string.Equals(userSkills, skill, StringComparison.OrdinalIgnoreCase)) {
+                userSkill = userSkills;
+                break;
+            }
+        }
+
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine($"Gender    : {userGender}");
+        Console.WriteLine($"Character : {userCharacter}");
+        Console.WriteLine($"Skill     : {userSkill}");
+    }
+}
